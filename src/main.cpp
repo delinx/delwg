@@ -29,7 +29,7 @@ int main(int argc, char* argv[])
 {
 
     // Global
-    std::string templatesPath = "../..delwg-del.cx/template/";
+    std::string templatesPath = "../../delwg-del.cx/template/";
     std::string menu = Builder::replaceStringAll(Builder::fileToString(templatesPath + "menu.html"), "{PATH}", "");
     std::string menuBlog = Builder::replaceStringAll(Builder::fileToString(templatesPath + "menu.html"), "{PATH}", "../");
     std::string footer = Builder::fileToString(templatesPath + "footer.html");
@@ -42,10 +42,10 @@ int main(int argc, char* argv[])
     mainPage.head = Builder::replaceString(Builder::fileToString(templatesPath + "head.html"), "{TITLE}", "Mihails Mozajevs");
     mainPage.addStyleFile("template/style.css");
     mainPage.addStyleFile("template/textStyle.css");
-    mainPage.path = "../..delwg-del.cx/";
+    mainPage.path = "../../delwg-del.cx/";
 
     std::string links = Builder::fileToString(templatesPath + "links.html");
-    std::string cv = Builder::parseMarkdown(Builder::fileToString("../..delwg-del.cx/cv.md"));
+    std::string cv = Builder::parseMarkdown(Builder::fileToString("../../delwg-del.cx/cv.md"));
 
     mainPage.body += menu;
     mainPage.body += links;
@@ -60,7 +60,7 @@ int main(int argc, char* argv[])
     blogPage.head = Builder::replaceString(Builder::fileToString(templatesPath + "head.html"), "{TITLE}", "Mihails Mozajevs");
     blogPage.addStyleFile("template/style.css");
     blogPage.addStyleFile("template/textStyle.css");
-    blogPage.path = "../..delwg-del.cx/";
+    blogPage.path = "../../delwg-del.cx/";
 
     blogPage.body += menu;
     // build all the blog pages and add links to them
@@ -72,14 +72,14 @@ int main(int argc, char* argv[])
         blogUniquePage.head = Builder::replaceString(Builder::fileToString(templatesPath + "head.html"), "{TITLE}", "Mihails Mozajevs");
         blogUniquePage.addStyleFile("../template/style.css");
         blogUniquePage.addStyleFile("../template/textStyle.css");
-        blogUniquePage.path = "../..delwg-del.cx/blog/";
+        blogUniquePage.path = "../../delwg-del.cx/blog/";
         blogUniquePage.body += menuBlog;
-        blogUniquePage.body += Builder::parseMarkdown(Builder::fileToString("../..delwg-del.cx/blog/" + blogs[i]));
+        blogUniquePage.body += Builder::parseMarkdown(Builder::fileToString("../../delwg-del.cx/blog/" + blogs[i]));
         blogUniquePage.body += footer;
 
         // extract info about blog from .md comment tag <<TAG>>
         // format: '<<TAG>>title|date<<TAG>>' seperated on '|'
-        std::string blogInfo = Builder::fileToString("../..delwg-del.cx/blog/" + blogs[i]);
+        std::string blogInfo = Builder::fileToString("../../delwg-del.cx/blog/" + blogs[i]);
         blogInfo = blogInfo.substr(blogInfo.find("<<TAG>>") + 7, blogInfo.find("<<TAG>>", blogInfo.find("<<TAG>>") + 7) - blogInfo.find("<<TAG>>") - 7);
         // split on '|'
         std::string blogTitle = blogInfo.substr(0, blogInfo.find("|"));
