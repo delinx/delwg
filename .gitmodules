@@ -1,0 +1,3 @@
+[submodule "delwg-del.cx"]
+	path = delwg-del.cx
+	url = git@github.com:delinx/delwg-del.cx.git
