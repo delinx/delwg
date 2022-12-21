@@ -36,4 +36,5 @@ build/
 # template stuff
 
 web/*.html
+web/blog/*.html
 !web/templates/*.html
